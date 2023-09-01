@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="/piece">Piezas</a>
+      <a mat-list-item href="/color">Color</a>
+      <a mat-list-item href="/employee">Empleados</a>
+      <a mat-list-item href="/area">Area</a>
+      <a mat-list-item href="/subarea">Subarea</a>
+      <a mat-list-item href="/activity">Actividad</a>
+      <a mat-list-item href="/client">Cliente</a>
+      <a mat-list-item href="/order">Orden</a>
+      <a mat-list-item href="/orderactivity">Orden de Actividad</a>
+      <a mat-list-item href="/orderemployee">Orden de Empleado</a>
+      <a mat-list-item href="/table">Table</a>
+      <a mat-list-item href="/dragdrop">Drag-drop</a>
+      <a mat-list-item href="/addressform">addressform</a>
+      <a mat-list-item href="/tree">Tree</a>
+      <a mat-list-item href="/dashboard">Dashboard</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>tiber_angular</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
