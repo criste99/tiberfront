@@ -7,6 +7,8 @@ import { RestService } from 'src/app/Services/rest.service';
   styleUrls: ['./client.component.scss']
 })
 export class ClientComponent implements OnInit{
+  titulo_client = "MODULO CLIENTES"
+
   constructor(public api: RestService){
   }
   ngOnInit(): void {

@@ -7,6 +7,8 @@ import { RestService } from 'src/app/Services/rest.service';
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit{
+  titulo_employee = "MODULO EMPLEADOS"
+
   constructor(public api: RestService){
 
   }

@@ -7,8 +7,8 @@ import { RestService } from 'src/app/Services/rest.service';
   styleUrls: ['./color.component.scss']
 })
 export class ColorComponent implements OnInit {
+  titulo_color = "MODULO COLORES"
   constructor(public api: RestService){
-
   }
   ngOnInit(): void {
     this.api.Get("color");
