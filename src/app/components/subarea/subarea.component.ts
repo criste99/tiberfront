@@ -7,6 +7,7 @@ import { RestService } from 'src/app/Services/rest.service';
   styleUrls: ['./subarea.component.scss']
 })
 export class SubareaComponent implements OnInit {
+  titulo_subArea = "MODULO SUBAREA"
   constructor(public api: RestService){
 
   }

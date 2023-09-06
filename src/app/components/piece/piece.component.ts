@@ -7,6 +7,8 @@ import { RestService } from 'src/app/Services/rest.service';
   styleUrls: ['./piece.component.scss']
 })
 export class PieceComponent {
+  titulo_piece = "MODULO PIEZAS"
+
   constructor(public api: RestService){
 
   }

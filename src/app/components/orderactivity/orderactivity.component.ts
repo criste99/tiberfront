@@ -7,9 +7,9 @@ import { RestService } from 'src/app/Services/rest.service';
   styleUrls: ['./orderactivity.component.scss']
 })
 export class OrderactivityComponent implements OnInit {
+  titulo_orderActivity = "MODULO ORDEN DE ACTIVIDAD"
 
   constructor(public api: RestService){
-
   }
   ngOnInit(): void {
     this.api.Get("orderactivity");

@@ -7,6 +7,8 @@ import { RestService } from 'src/app/Services/rest.service';
   styleUrls: ['./area.component.scss']
 })
 export class AreaComponent implements OnInit{
+  titulo_area = "MODULO DE AREA"
+
   constructor(public api: RestService){
 
   }

@@ -7,7 +7,7 @@ import { RestService } from 'src/app/Services/rest.service';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit{
-  
+  titulo_order = "MODULO ORDENES"
   constructor(public api: RestService){
 }
 ngOnInit(): void {
