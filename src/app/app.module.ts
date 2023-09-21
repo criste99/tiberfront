@@ -40,6 +40,7 @@ import { OrderemployeeComponent } from './components/orderemployee/orderemployee
 import { ClientComponent } from './components/client/client.component';
 import { OrderComponent } from './components/order/order.component';
 import { OrderactivityComponent } from './components/orderactivity/orderactivity.component';
+import { AvatarModule } from 'ngx-avatars';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { OrderactivityComponent } from './components/orderactivity/orderactivity
     ClientComponent,
     OrderComponent,
     OrderactivityComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { OrderactivityComponent } from './components/orderactivity/orderactivity
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AvatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

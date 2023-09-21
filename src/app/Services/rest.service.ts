@@ -14,4 +14,18 @@ export class RestService {
       console.log(respo);
     }))
   }
+    public async post(controller: string, body: any){
+      return await this.api.post(this.Url + controller, body).subscribe((res) => {
+      })
+    }
+
+    public async delete(controller: string, Id: String){
+      return await this.api.delete(this.Url + controller + "/" + Id)
+    }
+
+    public async update(controller: string, id:string, body:any){
+      return await this.api.put(this.Url + controller + "/" + id, body)
+    }
+
+
 }
