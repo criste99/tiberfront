@@ -11,40 +11,37 @@ import { RestService } from 'src/app/Services/rest.service';
 })
 export class PieceComponent implements OnInit {
   displayedColumns: string[] = [];
+  dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: MatTableDataSource<any>;
 
   constructor(public api: RestService) {
     this.dataSource = new MatTableDataSource();
   }
-  ngOnInit(): void {
 
-    setTimeout(()=>{
-      
-      this.api.Get("piece").then((res) => {
-        for (let index = 0; index < res.length; index++) {
-          this.loadTable([res[index]])
-  
-        }
-  
-        this.dataSource.data = res;
+  ngOnInit(): void {
+    // Realizar la llamada a la API y cargar los datos en la tabla
+    this.api.Get("piece").then((res) => {
+      if (Array.isArray(res.data)) { // Verificar si res.data es un arreglo
+        this.loadTable(res.data); // Cargar las columnas desde los datos
+        this.dataSource = new MatTableDataSource(res.data); // Configurar los datos en el MatTableDataSource
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        
-      } )
-    }, 10000);
+      } else {
+        console.error("La propiedad 'data' de la respuesta de la API no es un arreglo:", res.data);
+        // Puedes manejar el error o mostrar un mensaje al usuario aquí
+      }
+    });
   }
+  
+  
 
   loadTable(data: any[]) {
-    this.displayedColumns = [];
-    for (let column in data[0]) {
-      this.displayedColumns.push(column);
-
+    // Extraer los nombres de las columnas de la primera fila de datos (si los datos son objetos)
+    if (data.length > 0) {
+      this.displayedColumns = Object.keys(data[0]);
     }
-    console.log(this.displayedColumns);
-    
   }
 
   applyFilter(event: Event) {
