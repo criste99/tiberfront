@@ -13,6 +13,7 @@ export class RestService {
       respo=res;
       console.log(respo);
     }))
+    return respo;
   }
     public async post(controller: string, body: any){
       return await this.api.post(this.Url + controller, body).subscribe((res) => {
