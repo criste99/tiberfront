@@ -6,12 +6,27 @@ import { HttpClient } from '@angular/common/http';
 export class RestService {
 
   constructor(public api: HttpClient) {}
-  Url="http://127.0.0.1:8000/api/"
+  Url="http://127.0.0.1:8000/api/v1/"
   public async Get (controller:string){
     var respo:any
     await this.api.get(this.Url+controller).toPromise().then((res=>{
       respo=res;
       console.log(respo);
     }))
+    return respo;
   }
+    public async post(controller: string, body: any){
+      return await this.api.post(this.Url + controller, body).subscribe((res) => {
+      })
+    }
+
+    public async delete(controller: string, Id: String){
+      return await this.api.delete(this.Url + controller + "/" + Id)
+    }
+
+    public async update(controller: string, id:string, body:any){
+      return await this.api.put(this.Url + controller + "/" + id, body)
+    }
+
+
 }
