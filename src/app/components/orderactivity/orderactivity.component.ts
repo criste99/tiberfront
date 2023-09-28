@@ -21,7 +21,7 @@ export class OrderactivityComponent implements OnInit {
   }
   ngOnInit(): void {
     // Realizar la llamada a la API y cargar los datos en la tabla
-    this.api.Get("activity").then((res) => {
+    this.api.Get("orderActivity").then((res) => {
       if (Array.isArray(res.data)) { // Verificar si res.data es un arreglo
         this.loadTable(res.data); // Cargar las columnas desde los datos
         this.dataSource = new MatTableDataSource(res.data); // Configurar los datos en el MatTableDataSource
@@ -38,6 +38,7 @@ export class OrderactivityComponent implements OnInit {
     if (data.length > 0) {
       this.displayedColumns = Object.keys(data[0]);
     }
+    this.displayedColumns.push('Acciones');
   }
 
   applyFilter(event: Event) {

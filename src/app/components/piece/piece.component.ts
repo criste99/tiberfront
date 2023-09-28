@@ -41,6 +41,7 @@ export class PieceComponent implements OnInit {
     // Extraer los nombres de las columnas de la primera fila de datos (si los datos son objetos)
     if (data.length > 0) {
       this.displayedColumns = Object.keys(data[0]);
+      this.displayedColumns.push('Acciones');
     }
   }
 
