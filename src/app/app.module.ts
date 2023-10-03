@@ -87,7 +87,7 @@ import { AvatarModule } from 'ngx-avatars';
     MatRadioModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AvatarModule
+    AvatarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
