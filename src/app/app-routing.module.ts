@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TableComponent } from './components/table/table.component';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
-import { AddressFormComponent } from './components/address-form/address-form.component';
+import { AddressFormComponent } from './components/forms/address-form/address-form.component';
 import { TreeComponent } from './components/tree/tree.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PieceComponent } from './components/piece/piece.component';
