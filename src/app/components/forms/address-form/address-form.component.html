@@ -1,0 +1,68 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Orden</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Cliente" formControlName="client">
+            <mat-error *ngIf="addressForm.controls['client'].hasError('required')">
+              El cliente es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      
+
+      <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Pieza" formControlName="piece">
+            <mat-option *ngFor="let piece of pieces" [value]="piece">
+              {{piece.name}}             
+            </mat-option>            
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['piece'].hasError('required')">
+            La pieza es <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
+      
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Color" formControlName="color">
+            <mat-option *ngFor="let color of colors" [value]="color">
+              {{color.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['color'].hasError('required')">
+            El color es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    
+    
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput type="number" placeholder="Cantidad" formControlName="quanty">
+          <mat-error *ngIf="addressForm.controls['quanty'].hasError('required')">
+            La cantidad es <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Registrar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

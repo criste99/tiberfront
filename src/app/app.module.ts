@@ -22,11 +22,11 @@ import { TreeComponent } from './components/tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { AddressFormComponent } from './components/address-form/address-form.component';
+import { AddressFormComponent } from './components/forms/address-form/address-form.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PagesComponent } from './components/pages/pages.component';
 import { ProfesComponent } from './components/profes/profes.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,6 +41,8 @@ import { ClientComponent } from './components/client/client.component';
 import { OrderComponent } from './components/order/order.component';
 import { OrderactivityComponent } from './components/orderactivity/orderactivity.component';
 import { AvatarModule } from 'ngx-avatars';
+import { AsyncPipe, NgFor } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,11 @@ import { AvatarModule } from 'ngx-avatars';
     ReactiveFormsModule,
     HttpClientModule,
     AvatarModule,
+    NgFor,
+    FormsModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    AsyncPipe
   ],
   providers: [],
   bootstrap: [AppComponent]
