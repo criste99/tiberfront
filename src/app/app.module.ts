@@ -23,6 +23,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddressFormComponent } from './components/forms/address-form/address-form.component';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -43,6 +44,9 @@ import { OrderactivityComponent } from './components/orderactivity/orderactivity
 import { AvatarModule } from 'ngx-avatars';
 import { AsyncPipe, NgFor } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
+import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
+import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
 
 @NgModule({
   declarations: [
@@ -57,14 +61,17 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ProfesComponent,
     PieceComponent,
     ColorComponent,
-    EmployeeComponent,
+    EmployeeFormComponent,
     AreaComponent,
     SubareaComponent,
     ActivityComponent,
     OrderemployeeComponent,
     ClientComponent,
     OrderComponent,
+    EmployeeComponent,
     OrderactivityComponent,
+    OrderemployeeFormComponent,
+    SubareaFormComponent,
     
   ],
   imports: [
@@ -87,6 +94,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     AvatarModule,
