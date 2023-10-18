@@ -49,6 +49,8 @@ export class PieceComponent implements OnInit {
 
   openDialog(){
     this.dialog.open(PieceFormComponent,{
+      height: '220px',
+      width: '400px',
 
     })
   }

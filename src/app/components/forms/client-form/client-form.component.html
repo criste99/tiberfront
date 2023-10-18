@@ -14,20 +14,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Identificacion" formControlName="identification">
-            <mat-error *ngIf="addressFormClient.controls['identification'].hasError('required')">
-              El numero de identificacion es <strong>requerido</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      
-      
-    
-      
+  
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Registrar</button>
