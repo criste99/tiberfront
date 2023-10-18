@@ -1,6 +1,7 @@
 import { Component,OnInit,inject } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
+import { ClietModels } from 'src/app/Models/ClientModels';
 import { RestService } from 'src/app/Services/rest.service';
 import Swal from 'sweetalert2';
 
@@ -21,11 +22,13 @@ export class ClientFormComponent implements OnInit{
     this.api.Get("client");
   }
   private fb = inject(FormBuilder);
-  addressForm = this.fb.group({
-    company: null,
+  addressFormClient = this.fb.group({
     clientName: [null, Validators.required],
-    identification: [null, Validators.required],
   });
+
+  infoClient: ClietModels = {
+    name: ""
+  }
 
   hasUnitNumber = false;
 
