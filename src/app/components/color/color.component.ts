@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { ColorFormComponent } from '../forms/color-form/color-form.component';
 
 @Component({
   selector: 'app-color',
@@ -16,9 +18,10 @@ export class ColorComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api: RestService) {
+  constructor(public api: RestService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
+
   ngOnInit(): void {
     // Realizar la llamada a la API y cargar los datos en la tabla
     this.api.Get("color").then((res) => {
@@ -33,12 +36,22 @@ export class ColorComponent implements OnInit {
       }
     });
   }
+
+
+
+
   loadTable(data: any[]) {
     // Extraer los nombres de las columnas de la primera fila de datos (si los datos son objetos)
     if (data.length > 0) {
       this.displayedColumns = Object.keys(data[0]);
       this.displayedColumns.push('Acciones');
     }
+  }
+
+  openDialog(){
+    this.dialog.open(ColorFormComponent,{
+
+    })
   }
 
   applyFilter(event: Event) {

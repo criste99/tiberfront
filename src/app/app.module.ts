@@ -23,7 +23,6 @@ import { MatTreeModule } from '@angular/material/tree';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddressFormComponent } from './components/forms/address-form/address-form.component';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -48,6 +47,9 @@ import { PieceFormComponent } from './components/forms/piece-form/piece-form.com
 import { ClientFormComponent } from './components/forms/client-form/client-form.component';
 import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ColorFormComponent } from './components/forms/color-form/color-form.component';
+import { AreaFormComponent } from './components/forms/area-form/area-form.component';
+import { ActivityFormComponent } from './components/forms/activity-form/activity-form.component';
 
 @NgModule({
   declarations: [
@@ -62,23 +64,20 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     ProfesComponent,
     PieceComponent,
     ColorComponent,
-    EmployeeFormComponent,
+    EmployeeComponent,
     AreaComponent,
     SubareaComponent,
     ActivityComponent,
     OrderemployeeComponent,
     ClientComponent,
     OrderComponent,
-    EmployeeComponent,
     OrderactivityComponent,
-<<<<<<< HEAD
-    OrderemployeeFormComponent,
-    SubareaFormComponent,
-=======
     PieceFormComponent,
     ClientFormComponent,
     OrderactivityFormComponent,
->>>>>>> origin/criste99
+    ColorFormComponent,
+    AreaFormComponent,
+    ActivityFormComponent,
 
   ],
   imports: [
@@ -102,7 +101,6 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     AvatarModule,

@@ -1,0 +1,23 @@
+<form [formGroup]="addressFormColor" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Color</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre color" formControlName="name">
+            <mat-error *ngIf="addressFormColor.controls['name'].hasError('required')">
+              El nombre del color es <strong>requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="!addressFormColor.valid" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

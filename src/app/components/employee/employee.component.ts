@@ -4,7 +4,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
-import { EmployeeFormComponent } from '../forms/employee-form/employee-form.component';
 
 @Component({
   selector: 'app-employee',
@@ -42,12 +41,8 @@ export class EmployeeComponent implements OnInit{
       this.displayedColumns.push('Acciones');
     }
   }
-  
+
   openDialog () {
-    this.dialog.open(EmployeeFormComponent, {
-      width: '350px',
-      height: '200px',
-    });
    }
 
 

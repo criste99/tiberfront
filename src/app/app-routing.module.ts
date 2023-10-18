@@ -36,9 +36,6 @@ const routes: Routes = [
   {path:"table",component:TableComponent},
   {path:"dragdrop",component:DragDropComponent},
   {path:"addressform",component:AddressFormComponent},
-  {path:"employeeform",component:EmployeeFormComponent},
-  {path:"orderemployeeform",component:OrderemployeeFormComponent},
-  {path:"subareaform",component:SubareaFormComponent},
   {path:"tree",component:TreeComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"table",component:TableComponent},
@@ -47,7 +44,6 @@ const routes: Routes = [
   {path:"orderactivityform",component:OrderactivityFormComponent}
 
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
