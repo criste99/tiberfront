@@ -48,6 +48,7 @@ import { EmployeeFormComponent } from './components/forms/employee-form/employee
 import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
 import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,6 @@ import { SubareaFormComponent } from './components/forms/subarea-form/subarea-fo
     OrderactivityComponent,
     OrderemployeeFormComponent,
     SubareaFormComponent,
-    
   ],
   imports: [
     BrowserModule,
