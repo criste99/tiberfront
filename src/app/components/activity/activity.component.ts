@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
+import { ActivityFormComponent } from '../forms/activity-form/activity-form.component';
 
 @Component({
   selector: 'app-activity',
@@ -16,7 +18,7 @@ export class ActivityComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api: RestService) {
+  constructor(public api: RestService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
   ngOnInit(): void {
@@ -39,6 +41,13 @@ export class ActivityComponent implements OnInit {
       this.displayedColumns = Object.keys(data[0]);
       this.displayedColumns.push('Acciones');
     }
+  }
+
+
+  openDialog(){
+    this.dialog.open(ActivityFormComponent,{
+
+    })
   }
 
   applyFilter(event: Event) {
