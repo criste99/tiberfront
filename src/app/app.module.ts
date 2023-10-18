@@ -47,6 +47,10 @@ import { PieceFormComponent } from './components/forms/piece-form/piece-form.com
 import { ClientFormComponent } from './components/forms/client-form/client-form.component';
 import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
+import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
+import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
+
 
 @NgModule({
   declarations: [
@@ -61,18 +65,21 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     ProfesComponent,
     PieceComponent,
     ColorComponent,
-    EmployeeComponent,
+    EmployeeFormComponent,
     AreaComponent,
     SubareaComponent,
     ActivityComponent,
     OrderemployeeComponent,
     ClientComponent,
     OrderComponent,
+    EmployeeComponent,
     OrderactivityComponent,
     PieceFormComponent,
     ClientFormComponent,
     OrderactivityFormComponent,
     
+    OrderemployeeFormComponent,
+    SubareaFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +102,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     AvatarModule,
