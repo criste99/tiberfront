@@ -46,6 +46,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PieceFormComponent } from './components/forms/piece-form/piece-form.component';
 import { ClientFormComponent } from './components/forms/client-form/client-form.component';
 import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { OrderactivityFormComponent } from './components/forms/orderactivity-for
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,

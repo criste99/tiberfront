@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { PieceFormComponent } from '../forms/piece-form/piece-form.component';
 
 @Component({
   selector: 'app-piece',
@@ -16,7 +18,7 @@ export class PieceComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api: RestService) {
+  constructor(public api: RestService ,public dialog: MatDialog ) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -43,6 +45,12 @@ export class PieceComponent implements OnInit {
       this.displayedColumns = Object.keys(data[0]);
       this.displayedColumns.push('Acciones');
     }
+  }
+
+  openDialog(){
+    this.dialog.open(PieceFormComponent,{
+
+    })
   }
 
   applyFilter(event: Event) {
