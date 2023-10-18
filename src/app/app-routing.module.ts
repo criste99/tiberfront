@@ -15,9 +15,9 @@ import { ClientComponent } from './components/client/client.component';
 import { OrderComponent } from './components/order/order.component';
 import { OrderactivityComponent } from './components/orderactivity/orderactivity.component';
 import { OrderemployeeComponent } from './components/orderemployee/orderemployee.component';
-import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
-import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
-import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
+import { ClientFormComponent } from './components/forms/client-form/client-form.component';
+import { PieceFormComponent } from './components/forms/piece-form/piece-form.component';
+import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
 
 const routes: Routes = [
 
@@ -41,7 +41,10 @@ const routes: Routes = [
   {path:"subareaform",component:SubareaFormComponent},
   {path:"tree",component:TreeComponent},
   {path:"dashboard",component:DashboardComponent},
-  {path:"table",component:TableComponent}
+  {path:"table",component:TableComponent},
+  {path:"clientform",component:ClientFormComponent},
+  {path:"pieceform",component:PieceFormComponent},
+  {path:"orderactivityform",component:OrderactivityFormComponent}
 
 ];
 
