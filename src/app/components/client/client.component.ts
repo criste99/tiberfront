@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
-
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { PieceFormComponent } from '../forms/piece-form/piece-form.component';
+import { ClientFormComponent } from '../forms/client-form/client-form.component';
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -16,7 +18,7 @@ export class ClientComponent implements OnInit{
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api: RestService) {
+  constructor(public api: RestService,public dialog: MatDialog ) {
     this.dataSource = new MatTableDataSource();
   }
   ngOnInit(): void {
@@ -39,6 +41,11 @@ export class ClientComponent implements OnInit{
       this.displayedColumns = Object.keys(data[0]);
       this.displayedColumns.push('Acciones');
     }
+  }
+  openDialog(){
+    this.dialog.open(ClientFormComponent,{
+
+    })
   }
 
   applyFilter(event: Event) {
