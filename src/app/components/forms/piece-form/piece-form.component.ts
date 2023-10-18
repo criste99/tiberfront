@@ -40,8 +40,8 @@ constructor(public api: RestService){
 
       if(res){
         Swal.fire(
-          'Yeeeiii!',
-          'Por favor intente de nuevo',
+          'Perfecto!',
+          'Su pieza ha sido registrada',
           'success'
         )
       }else{
