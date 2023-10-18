@@ -43,6 +43,10 @@ import { OrderactivityComponent } from './components/orderactivity/orderactivity
 import { AvatarModule } from 'ngx-avatars';
 import { AsyncPipe, NgFor } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PieceFormComponent } from './components/forms/piece-form/piece-form.component';
+import { ClientFormComponent } from './components/forms/client-form/client-form.component';
+import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -65,6 +69,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ClientComponent,
     OrderComponent,
     OrderactivityComponent,
+    PieceFormComponent,
+    ClientFormComponent,
+    OrderactivityFormComponent,
     
   ],
   imports: [
@@ -73,6 +80,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,

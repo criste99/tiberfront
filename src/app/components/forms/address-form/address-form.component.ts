@@ -41,7 +41,8 @@ export class AddressFormComponent implements OnInit {
     {name: 'Plata'},
     {name: 'Oro'},
     {name: 'Brush'},
-    {name: 'Niquel'}
+    {name: 'Niquel'},
+
   ];  
 
   onSubmit(): void {
