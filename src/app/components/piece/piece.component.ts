@@ -36,8 +36,8 @@ export class PieceComponent implements OnInit {
       }
     });
   }
-  
-  
+
+
 
   loadTable(data: any[]) {
     // Extraer los nombres de las columnas de la primera fila de datos (si los datos son objetos)
@@ -49,6 +49,8 @@ export class PieceComponent implements OnInit {
 
   openDialog(){
     this.dialog.open(PieceFormComponent,{
+      height: '220px',
+      width: '400px',
 
     })
   }

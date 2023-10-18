@@ -18,6 +18,9 @@ import { OrderemployeeComponent } from './components/orderemployee/orderemployee
 import { ClientFormComponent } from './components/forms/client-form/client-form.component';
 import { PieceFormComponent } from './components/forms/piece-form/piece-form.component';
 import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
+import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
+import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
+import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
 
 const routes: Routes = [
 

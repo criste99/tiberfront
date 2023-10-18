@@ -50,6 +50,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ColorFormComponent } from './components/forms/color-form/color-form.component';
 import { AreaFormComponent } from './components/forms/area-form/area-form.component';
 import { ActivityFormComponent } from './components/forms/activity-form/activity-form.component';
+import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
+import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
+import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
+
 
 @NgModule({
   declarations: [
@@ -78,7 +82,8 @@ import { ActivityFormComponent } from './components/forms/activity-form/activity
     ColorFormComponent,
     AreaFormComponent,
     ActivityFormComponent,
-
+    OrderemployeeFormComponent,
+    SubareaFormComponent,
   ],
   imports: [
     BrowserModule,

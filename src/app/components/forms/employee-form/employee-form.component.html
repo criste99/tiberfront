@@ -1,4 +1,4 @@
-<form [formGroup]="addressForm"  (ngSubmit)="onSubmit()">
+<form [formGroup]="EmployeeForm"  (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Empleado</mat-card-title>
@@ -10,8 +10,11 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Nombre Empleado" formControlName="name">
-            <mat-error *ngIf="addressForm.controls['name'].hasError('required')">
+            <mat-error *ngIf="EmployeeForm.controls['name'].hasError('required')">
               El nombre del empleado es <strong>requerido</strong>
+            </mat-error>
+            <mat-error *ngIf="EmployeeForm.controls['name'].hasError('pattern')">
+              Solo puede ingresar  <strong>letras</strong>
             </mat-error>
           </mat-form-field>
         </div>
