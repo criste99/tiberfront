@@ -7,7 +7,6 @@ import { TreeComponent } from './components/tree/tree.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PieceComponent } from './components/piece/piece.component';
 import { ColorComponent } from './components/color/color.component';
-import { EmployeeComponent } from './components/employee/employee.component';
 import { AreaComponent } from './components/area/area.component';
 import { SubareaComponent } from './components/subarea/subarea.component';
 import { ActivityComponent } from './components/activity/activity.component';
@@ -18,7 +17,6 @@ import { OrderemployeeComponent } from './components/orderemployee/orderemployee
 import { ClientFormComponent } from './components/forms/client-form/client-form.component';
 import { PieceFormComponent } from './components/forms/piece-form/piece-form.component';
 import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
-import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
 import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
 import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
 
@@ -26,7 +24,6 @@ const routes: Routes = [
 
   {path:"piece",component:PieceComponent},
   {path:"color",component:ColorComponent},
-  {path:"employee",component:EmployeeComponent},
   {path:"area",component:AreaComponent},
   {path:"subarea",component:SubareaComponent},
   {path:"activity",component:ActivityComponent},

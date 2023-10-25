@@ -8,9 +8,9 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Actividad" formControlName="Activity">
-            <mat-error *ngIf="addressFormOrderActivity.controls['Activity'].hasError('required')">
-              La actividad <strong> es requerida</strong>
+            <input matInput placeholder="Id de Orden" formControlName="id_order">
+            <mat-error *ngIf="addressFormOrderActivity.controls['id_order'].hasError('required')">
+              El ID de Orden<strong> es requerida</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -18,8 +18,18 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Fecha de entrada" formControlName="EntryDate"></textarea>
-            <mat-error *ngIf="addressFormOrderActivity.controls['EntryDate'].hasError('required')">
+            <textarea matInput placeholder="ID de actividad" formControlName="id_activity"></textarea>
+            <mat-error *ngIf="addressFormOrderActivity.controls['id_activity'].hasError('required')">
+              El ID de Actividad<strong> requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Fecha de entrada" formControlName="entryDate"></textarea>
+            <mat-error *ngIf="addressFormOrderActivity.controls['entryDate'].hasError('required')">
               La fecha de entrada <strong> requerida</strong>
             </mat-error>
           </mat-form-field>
@@ -28,9 +38,9 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Fecha de entrada" formControlName="State"></textarea>
-            <mat-error *ngIf="addressFormOrderActivity.controls['State'].hasError('required')">
-              La fecha de entrada <strong> requerida</strong>
+            <textarea matInput placeholder="Estado" formControlName="status"></textarea>
+            <mat-error *ngIf="addressFormOrderActivity.controls['status'].hasError('required')">
+              El estado es<strong> requerido</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -38,9 +48,9 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Fecha de entrada" formControlName="EntryDate"></textarea>
-            <mat-error *ngIf="addressFormOrderActivity.controls['EntryDate'].hasError('required')">
-              La fecha de entrada <strong> requerida</strong>
+            <textarea matInput placeholder="Fecha de salida" formControlName="outDate"></textarea>
+            <mat-error *ngIf="addressFormOrderActivity.controls['outDate'].hasError('required')">
+              La fecha de salida es<strong> requerida</strong>
             </mat-error>
           </mat-form-field>
         </div>

@@ -54,6 +54,9 @@ export class PieceComponent implements OnInit {
 
     })
   }
+  closeDialog(){
+    this.dialog.closeAll();
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

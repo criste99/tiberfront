@@ -32,7 +32,6 @@ import { ProfesComponent } from './components/profes/profes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PieceComponent } from './components/piece/piece.component';
 import { ColorComponent } from './components/color/color.component';
-import { EmployeeComponent } from './components/employee/employee.component';
 import { AreaComponent } from './components/area/area.component';
 import { SubareaComponent } from './components/subarea/subarea.component';
 import { ActivityComponent } from './components/activity/activity.component';
@@ -50,7 +49,6 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ColorFormComponent } from './components/forms/color-form/color-form.component';
 import { AreaFormComponent } from './components/forms/area-form/area-form.component';
 import { ActivityFormComponent } from './components/forms/activity-form/activity-form.component';
-import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
 import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
 import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
 
@@ -68,7 +66,6 @@ import { SubareaFormComponent } from './components/forms/subarea-form/subarea-fo
     ProfesComponent,
     PieceComponent,
     ColorComponent,
-    EmployeeComponent,
     AreaComponent,
     SubareaComponent,
     ActivityComponent,

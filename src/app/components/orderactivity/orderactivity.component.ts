@@ -44,7 +44,8 @@ export class OrderactivityComponent implements OnInit {
   }
   openDialog(){
     this.dialog.open(OrderactivityFormComponent,{
-
+      width:'400px',
+      height:'600px'
     })
   }
 
