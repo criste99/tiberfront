@@ -1,7 +1,8 @@
 export class OrderActivityModels {
-    Activity: string;
-    EntryDate:Date;
-    State:string;
-    OutDate:Date;
+    id_order:number;
+    id_activity:number;
+    entry_date:string;
+    status:string;
+    out_date:string;
 
 }

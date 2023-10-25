@@ -1,3 +1,3 @@
-export class ClietModels {
+export class ClientModels {
     name: string;
 }

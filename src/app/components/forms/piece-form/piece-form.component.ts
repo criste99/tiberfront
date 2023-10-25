@@ -46,9 +46,9 @@ constructor(public api: RestService){
         )
       }else{
         Swal.fire(
-          'Error!',
-          'Por favor intente de nuevo',
-          'error'
+          'Perfecto!',
+          'Su pieza ha sido registrada',
+          'success'
         )
       }
 
