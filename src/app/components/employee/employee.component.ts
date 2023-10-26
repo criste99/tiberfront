@@ -61,5 +61,11 @@ export class EmployeeComponent implements OnInit{
       this.dataSource.paginator.firstPage();
     }
   }
+  eliminarItem(employee: any){
+    console.log(employee.Id);
+    this.api.delete("employee",employee.Id).then(res =>{
+      console.log(res);
+    })
+  }
 
 }

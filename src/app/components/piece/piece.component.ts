@@ -66,4 +66,11 @@ export class PieceComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  eliminarItem(pieza: any){
+    console.log(pieza.Id);
+    this.api.delete("piece",pieza.Id).then(res =>{
+      console.log(res);
+    })
+  }
 }
