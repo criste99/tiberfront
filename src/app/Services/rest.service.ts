@@ -15,13 +15,20 @@ export class RestService {
     }))
     return respo;
   }
-    public async post(controller: string, body: any){
-      return await this.api.post(this.Url + controller, body).subscribe((res) => {
+    async post(controller: string, body: any){
+      var response:any
+       await this.api.post(this.Url + controller, body).toPromise().then(res=> {
+        response=res;
       })
+      return response;
     }
 
     public async delete(controller: string, Id: String){
-      return await this.api.delete(this.Url + controller + "/" + Id)
+      var response: any
+      return await this.api.delete(this.Url + controller + "/" + Id).toPromise().then(res=>{
+        response = res;
+      })
+      return response;
     }
 
     public async update(controller: string, id:string, body:any){

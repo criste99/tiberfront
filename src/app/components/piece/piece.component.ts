@@ -49,8 +49,13 @@ export class PieceComponent implements OnInit {
 
   openDialog(){
     this.dialog.open(PieceFormComponent,{
+      height: '220px',
+      width: '400px',
 
     })
+  }
+  closeDialog(){
+    this.dialog.closeAll();
   }
 
   applyFilter(event: Event) {
@@ -60,5 +65,12 @@ export class PieceComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  eliminarItem(pieza: any){
+    console.log(pieza.Id);
+    this.api.delete("piece",pieza.Id).then(res =>{
+      console.log(res);
+    })
   }
 }

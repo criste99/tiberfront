@@ -1,0 +1,28 @@
+<form [formGroup]="EmployeeForm"  (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Empleado</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre Empleado" formControlName="name">
+            <mat-error *ngIf="EmployeeForm.controls['name'].hasError('required')">
+              El nombre del empleado es <strong>requerido</strong>
+            </mat-error>
+            <mat-error *ngIf="EmployeeForm.controls['name'].hasError('pattern')">
+              Solo puede ingresar  <strong>letras</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Registrar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

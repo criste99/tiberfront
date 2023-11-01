@@ -1,6 +1,9 @@
 import { Component, inject } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
+import { OrderActivityModels } from 'src/app/Models/OrderActivityModels';
+import { RestService } from 'src/app/Services/rest.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -9,86 +12,66 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./orderactivity-form.component.scss']
 })
 export class OrderactivityFormComponent {
+  constructor(public api: RestService){
+
+  }
   private fb = inject(FormBuilder);
-  addressForm = this.fb.group({
-    company: null,
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
-    address: [null, Validators.required],
-    address2: null,
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    postalCode: [null, Validators.compose([
-      Validators.required, Validators.minLength(5), Validators.maxLength(5)])
-    ],
-    shipping: ['free', Validators.required]
+  addressFormOrderActivity = this.fb.group({
+    id_order: [null, Validators.required],
+    id_activity: [null, Validators.required],
+    entryDate: [null, Validators.required],
+    status: [null, Validators.required],
+    outDate:[null, Validators.required]
   });
 
+  ngOnInit(): void {
+    this.api.Get("orderActivity");
+  }
+
+  infoOrdersActivity: OrderActivityModels = {
+    id_order:0,
+    id_activity:0,
+    entry_date:"",
+    status:"",
+    out_date:""
+  }
+  
   hasUnitNumber = false;
 
-  states = [
-    {name: 'Alabama', abbreviation: 'AL'},
-    {name: 'Alaska', abbreviation: 'AK'},
-    {name: 'American Samoa', abbreviation: 'AS'},
-    {name: 'Arizona', abbreviation: 'AZ'},
-    {name: 'Arkansas', abbreviation: 'AR'},
-    {name: 'California', abbreviation: 'CA'},
-    {name: 'Colorado', abbreviation: 'CO'},
-    {name: 'Connecticut', abbreviation: 'CT'},
-    {name: 'Delaware', abbreviation: 'DE'},
-    {name: 'District Of Columbia', abbreviation: 'DC'},
-    {name: 'Federated States Of Micronesia', abbreviation: 'FM'},
-    {name: 'Florida', abbreviation: 'FL'},
-    {name: 'Georgia', abbreviation: 'GA'},
-    {name: 'Guam', abbreviation: 'GU'},
-    {name: 'Hawaii', abbreviation: 'HI'},
-    {name: 'Idaho', abbreviation: 'ID'},
-    {name: 'Illinois', abbreviation: 'IL'},
-    {name: 'Indiana', abbreviation: 'IN'},
-    {name: 'Iowa', abbreviation: 'IA'},
-    {name: 'Kansas', abbreviation: 'KS'},
-    {name: 'Kentucky', abbreviation: 'KY'},
-    {name: 'Louisiana', abbreviation: 'LA'},
-    {name: 'Maine', abbreviation: 'ME'},
-    {name: 'Marshall Islands', abbreviation: 'MH'},
-    {name: 'Maryland', abbreviation: 'MD'},
-    {name: 'Massachusetts', abbreviation: 'MA'},
-    {name: 'Michigan', abbreviation: 'MI'},
-    {name: 'Minnesota', abbreviation: 'MN'},
-    {name: 'Mississippi', abbreviation: 'MS'},
-    {name: 'Missouri', abbreviation: 'MO'},
-    {name: 'Montana', abbreviation: 'MT'},
-    {name: 'Nebraska', abbreviation: 'NE'},
-    {name: 'Nevada', abbreviation: 'NV'},
-    {name: 'New Hampshire', abbreviation: 'NH'},
-    {name: 'New Jersey', abbreviation: 'NJ'},
-    {name: 'New Mexico', abbreviation: 'NM'},
-    {name: 'New York', abbreviation: 'NY'},
-    {name: 'North Carolina', abbreviation: 'NC'},
-    {name: 'North Dakota', abbreviation: 'ND'},
-    {name: 'Northern Mariana Islands', abbreviation: 'MP'},
-    {name: 'Ohio', abbreviation: 'OH'},
-    {name: 'Oklahoma', abbreviation: 'OK'},
-    {name: 'Oregon', abbreviation: 'OR'},
-    {name: 'Palau', abbreviation: 'PW'},
-    {name: 'Pennsylvania', abbreviation: 'PA'},
-    {name: 'Puerto Rico', abbreviation: 'PR'},
-    {name: 'Rhode Island', abbreviation: 'RI'},
-    {name: 'South Carolina', abbreviation: 'SC'},
-    {name: 'South Dakota', abbreviation: 'SD'},
-    {name: 'Tennessee', abbreviation: 'TN'},
-    {name: 'Texas', abbreviation: 'TX'},
-    {name: 'Utah', abbreviation: 'UT'},
-    {name: 'Vermont', abbreviation: 'VT'},
-    {name: 'Virgin Islands', abbreviation: 'VI'},
-    {name: 'Virginia', abbreviation: 'VA'},
-    {name: 'Washington', abbreviation: 'WA'},
-    {name: 'West Virginia', abbreviation: 'WV'},
-    {name: 'Wisconsin', abbreviation: 'WI'},
-    {name: 'Wyoming', abbreviation: 'WY'}
-  ];
+  async onSubmit(): Promise<void> {
+    try {
+      this.infoOrdersActivity.id_order = this.addressFormOrderActivity.controls['id_order'].value;
+      this.infoOrdersActivity.id_activity = this.addressFormOrderActivity.controls['id_activity'].value;
+      this.infoOrdersActivity.entry_date = this.addressFormOrderActivity.controls['entryDate'].value;
+      this.infoOrdersActivity.status = this.addressFormOrderActivity.controls['status'].value;
+      this.infoOrdersActivity.out_date = this.addressFormOrderActivity.controls['outDate'].value;
 
-  onSubmit(): void {
-    alert('Thanks!');
+      console.log(this.infoOrdersActivity);
+
+      const res = await this.api.post("orderActivity", this.infoOrdersActivity);
+
+      if(res){
+        Swal.fire(
+          'Perfecto!',
+          'Su pieza ha sido registrada',
+          'success'
+        )
+      }else{
+        Swal.fire(
+          'Perfecto!',
+          'Su pieza ha sido registrada',
+          'success'
+        )
+      }
+
+    } catch (e) {
+      Swal.fire(
+        'Error!',
+        'Por favor intente de nuevo',
+        'error'
+      )
+    }
+
+
   }
 }

@@ -40,6 +40,13 @@ export class ColorComponent implements OnInit {
       this.displayedColumns.push('Acciones');
     }
   }
+  
+  eliminarItem(color: any){
+    console.log(color.Id);
+    this.api.delete("color",color.Id).then(res =>{
+      console.log(res);
+    })
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
