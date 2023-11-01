@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { PieceFormComponent } from '../forms/piece-form/piece-form.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-piece',
@@ -67,10 +68,34 @@ export class PieceComponent implements OnInit {
     }
   }
 
-  eliminarItem(pieza: any){
+  eliminarItem(pieza: any) {
     console.log(pieza.Id);
-    this.api.delete("piece",pieza.Id).then(res =>{
-      console.log(res);
-    })
+    Swal.fire({
+      title: '¿Estás seguro que deseas remover la pieza?',
+      text: 'La pieza no podrá ser recuperada!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, elíminalo!',
+      cancelButtonText: 'No, olvídalo'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.api.delete("piece", pieza.Id).then((res) => {
+          if (res =! null) {
+            Swal.fire(
+              'Eliminado!',
+              'Tu pieza ha sido eliminada.',
+              'success'
+            );
+          }
+        });
+      } else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelado',
+          'Tu pieza sigue guardada',
+          'error'
+        );
+      }
+    });
   }
+  
 }

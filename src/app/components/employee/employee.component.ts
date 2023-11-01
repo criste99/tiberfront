@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
 import { EmployeeFormComponent } from '../forms/employee-form/employee-form.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee',
@@ -64,7 +65,13 @@ export class EmployeeComponent implements OnInit{
   eliminarItem(employee: any){
     console.log(employee.Id);
     this.api.delete("employee",employee.Id).then(res =>{
-      console.log(res);
+      if(res=!null) {
+        Swal.fire(
+          'Empleado eliminado!',
+          'El empleado ha sido eliminado en el sistema',
+          'success'
+        )
+      }
     })
   }
 
