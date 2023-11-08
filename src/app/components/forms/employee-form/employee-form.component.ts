@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
 import { EmployeeModel } from 'src/app/Models/EmployeeModel';
+import { ModalService } from 'src/app/Services/modal-service';
 import { RestService } from 'src/app/Services/rest.service';
 import Swal from 'sweetalert2';
 
@@ -11,9 +12,11 @@ import Swal from 'sweetalert2';
   templateUrl: './employee-form.component.html',
   styleUrls: ['./employee-form.component.scss']
 })
-export class EmployeeFormComponent {
+export class EmployeeFormComponent implements OnInit{
   private fb = inject(FormBuilder);
 
+  titulo ="";
+  accion = "";
   infoEmployee:EmployeeModel={
     name: ""
   }
@@ -25,7 +28,11 @@ export class EmployeeFormComponent {
 
   hasUnitNumber = false;
 
-constructor (private ep: FormBuilder, public api: RestService) {}
+constructor (private ep: FormBuilder, public api: RestService, public modalService: ModalService) {}
+  ngOnInit(): void {
+    this.titulo = this.modalService.titulo;
+    this.accion = this.modalService.accion.value;
+  }
 
 
   onSubmit(): void {
