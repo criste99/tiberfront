@@ -23,7 +23,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddressFormComponent } from './components/forms/address-form/address-form.component';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { SubAreaModel } from 'src/app/Models/SubAreaModel';
 import { RestService } from 'src/app/Services/rest.service';
 import { SubareaFormComponent } from '../forms/subarea-form/subarea-form.component';
 
@@ -51,6 +52,8 @@ export class SubareaComponent implements OnInit {
       height: '400px',
     });
    }
+
+   
   
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
