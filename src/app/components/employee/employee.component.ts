@@ -5,6 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
 import { EmployeeFormComponent } from '../forms/employee-form/employee-form.component';
+import Swal from 'sweetalert2';
+import { ModalService } from 'src/app/Services/modal-service';
 
 @Component({
   selector: 'app-employee',
@@ -18,7 +20,7 @@ export class EmployeeComponent implements OnInit{
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api: RestService, public dialog: MatDialog) {
+  constructor(public api: RestService, public dialog: MatDialog, public modalService: ModalService) {
     this.dataSource = new MatTableDataSource();
   }
   ngOnInit(): void {
@@ -46,6 +48,8 @@ export class EmployeeComponent implements OnInit{
 
 
   openDialog () {
+    this.modalService.titulo = "Nuevo empleado";
+    this.modalService.accion.next("crear");
     this.dialog.open(EmployeeFormComponent, {
       width: '350px',
       height: '200px',
@@ -60,6 +64,28 @@ export class EmployeeComponent implements OnInit{
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  editarItem(employee: any){
+    this.modalService.titulo = "Modificar empleado";
+  this.modalService.accion.next("Actualizar");
+  this.dialog.open(EmployeeFormComponent, {
+    width: '350px',
+    height: '200px',
+  });
+  }
+
+  eliminarItem(employee: any){
+    console.log(employee.Id);
+    this.api.delete("employee",employee.Id).then(res =>{
+      if(res=!null) {
+        Swal.fire(
+          'Empleado eliminado!',
+          'El empleado ha sido eliminado en el sistema',
+          'success'
+        )
+      }
+    })
   }
 
 }

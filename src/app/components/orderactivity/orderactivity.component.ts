@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
+import { OrderactivityFormComponent } from '../forms/orderactivity-form/orderactivity-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-orderactivity',
@@ -16,7 +18,7 @@ export class OrderactivityComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api: RestService) {
+  constructor(public api: RestService,public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
   ngOnInit(): void {
@@ -39,6 +41,12 @@ export class OrderactivityComponent implements OnInit {
       this.displayedColumns = Object.keys(data[0]);
     }
     this.displayedColumns.push('Acciones');
+  }
+  openDialog(){
+    this.dialog.open(OrderactivityFormComponent,{
+      width:'400px',
+      height:'600px'
+    })
   }
 
   applyFilter(event: Event) {

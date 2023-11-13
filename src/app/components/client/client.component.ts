@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
-
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { PieceFormComponent } from '../forms/piece-form/piece-form.component';
+import { ClientFormComponent } from '../forms/client-form/client-form.component';
+import { ModalService} from 'src/app/Services/modal-service';
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -16,7 +19,7 @@ export class ClientComponent implements OnInit{
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api: RestService) {
+  constructor(public api: RestService, public dialog: MatDialog, public modalService: ModalService ) {
     this.dataSource = new MatTableDataSource();
   }
   ngOnInit(): void {
@@ -40,7 +43,21 @@ export class ClientComponent implements OnInit{
       this.displayedColumns.push('Acciones');
     }
   }
+  openDialog(){
+    this.modalService.titulo = "Nuevo Cliente";
+    this.modalService.accion.next("crear");
+    this.dialog.open(ClientFormComponent,{
 
+    })
+  }
+  editarItem(client: any){
+    this.modalService.titulo = "Modificar empleado";
+  this.modalService.accion.next("Actualizar");
+  this.dialog.open(ClientFormComponent, {
+    width: '350px',
+    height: '200px',
+  });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

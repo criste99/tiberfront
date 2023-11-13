@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-color',
@@ -39,6 +40,19 @@ export class ColorComponent implements OnInit {
       this.displayedColumns = Object.keys(data[0]);
       this.displayedColumns.push('Acciones');
     }
+  }
+  
+  eliminarItem(color: any){
+    console.log(color.Id);
+    this.api.delete("color",color.Id).then(res =>{
+      if(res=!null) {
+        Swal.fire(
+          'Color eliminado!',
+          'El color ha sido eliminado en el sistema',
+          'success'
+        )
+      }
+    })
   }
 
   applyFilter(event: Event) {
