@@ -2,6 +2,7 @@ import { Component,OnInit,inject } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
 import { ClientModels } from 'src/app/Models/ClientModels';
+import { ModalService } from 'src/app/Services/modal-service';
 import { RestService } from 'src/app/Services/rest.service';
 import Swal from 'sweetalert2';
 
@@ -15,17 +16,22 @@ import Swal from 'sweetalert2';
 
 
 export class ClientFormComponent implements OnInit{
-  constructor(public api: RestService){
+  constructor(public api: RestService, public modalService: ModalService){
 
   }
   ngOnInit(): void {
-    this.api.Get("client");
+    // this.api.Get("client");
+    this.titulo = this.modalService.titulo;
+    this.accion = this.modalService.accion.value;
+
   }
   private fb = inject(FormBuilder);
+  titulo ="";
+  accion = "";
   addressFormClient = this.fb.group({
     clientName: [null, Validators.required]
   });
-
+  
   infoClient: ClientModels = {
     name: ""
   }
