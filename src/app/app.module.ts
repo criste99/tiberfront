@@ -40,6 +40,7 @@ import { OrderemployeeComponent } from './components/orderemployee/orderemployee
 import { ClientComponent } from './components/client/client.component';
 import { OrderComponent } from './components/order/order.component';
 import { OrderactivityComponent } from './components/orderactivity/orderactivity.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { OrderactivityComponent } from './components/orderactivity/orderactivity
     ClientComponent,
     OrderComponent,
     OrderactivityComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
