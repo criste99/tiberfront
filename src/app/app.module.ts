@@ -22,11 +22,11 @@ import { TreeComponent } from './components/tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { AddressFormComponent } from './components/address-form/address-form.component';
+import { AddressFormComponent } from './components/forms/address-form/address-form.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PagesComponent } from './components/pages/pages.component';
 import { ProfesComponent } from './components/profes/profes.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,6 +41,17 @@ import { ClientComponent } from './components/client/client.component';
 import { OrderComponent } from './components/order/order.component';
 import { OrderactivityComponent } from './components/orderactivity/orderactivity.component';
 import { LoginComponent } from './login/login.component';
+import { AvatarModule } from 'ngx-avatars';
+import { AsyncPipe, NgFor } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PieceFormComponent } from './components/forms/piece-form/piece-form.component';
+import { ClientFormComponent } from './components/forms/client-form/client-form.component';
+import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
+import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
+import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
+
 
 @NgModule({
   declarations: [
@@ -55,15 +66,22 @@ import { LoginComponent } from './login/login.component';
     ProfesComponent,
     PieceComponent,
     ColorComponent,
-    EmployeeComponent,
+    EmployeeFormComponent,
     AreaComponent,
     SubareaComponent,
     ActivityComponent,
     OrderemployeeComponent,
     ClientComponent,
     OrderComponent,
+    EmployeeComponent,
     OrderactivityComponent,
     LoginComponent,
+    PieceFormComponent,
+    ClientFormComponent,
+    OrderactivityFormComponent,
+
+    OrderemployeeFormComponent,
+    SubareaFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +89,7 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
@@ -85,8 +104,15 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatDialogModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AvatarModule,
+    NgFor,
+    FormsModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    AsyncPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

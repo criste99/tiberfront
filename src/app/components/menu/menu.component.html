@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -15,11 +16,7 @@
       <a mat-list-item href="/order">Orden</a>
       <a mat-list-item href="/orderactivity">Orden de Actividad</a>
       <a mat-list-item href="/orderemployee">Orden de Empleado</a>
-      <a mat-list-item href="/table">Table</a>
-      <a mat-list-item href="/dragdrop">Drag-drop</a>
-      <a mat-list-item href="/addressform">addressform</a>
-      <a mat-list-item href="/tree">Tree</a>
-      <a mat-list-item href="/dashboard">Dashboard</a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -32,7 +29,11 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>tiber_angular</span>
+      
+      <span>Tiber</span>
+      <div class="card">
+        <ngx-avatars name="Cristian Espinel"></ngx-avatars>
+      </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

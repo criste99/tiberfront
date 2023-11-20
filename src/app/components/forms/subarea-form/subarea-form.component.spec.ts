@@ -7,15 +7,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
-import { AddressFormComponent } from './address-form.component';
+import { SubareaFormComponent } from './subarea-form.component';
 
-describe('AddressFormComponent', () => {
-  let component: AddressFormComponent;
-  let fixture: ComponentFixture<AddressFormComponent>;
+describe('SubareaFormComponent', () => {
+  let component: SubareaFormComponent;
+  let fixture: ComponentFixture<SubareaFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AddressFormComponent],
+      declarations: [SubareaFormComponent],
       imports: [
         NoopAnimationsModule,
         ReactiveFormsModule,
@@ -29,7 +29,7 @@ describe('AddressFormComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddressFormComponent);
+    fixture = TestBed.createComponent(SubareaFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
