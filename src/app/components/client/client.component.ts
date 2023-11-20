@@ -4,9 +4,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from 'src/app/Services/rest.service';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import { PieceFormComponent } from '../forms/piece-form/piece-form.component';
 import { ClientFormComponent } from '../forms/client-form/client-form.component';
 import { ModalService} from 'src/app/Services/modal-service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -57,6 +57,35 @@ export class ClientComponent implements OnInit{
     width: '350px',
     height: '200px',
   });
+  }
+  eliminarItem(client: any) {
+    console.log(client.Id);
+    Swal.fire({
+      title: '¿Estás seguro que deseas remover el cliente?',
+      text: 'El cliente no podrá ser recuperado!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, elíminalo!',
+      cancelButtonText: 'No, olvídalo'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.api.delete("client", client.Id).then((res) => {
+          if (res =! null) {
+            Swal.fire(
+              'Eliminado!',
+              'Tu cliente ha sido eliminado.',
+              'success'
+            );
+          }
+        });
+      } else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelado',
+          'Tu cliente sigue guardado',
+          'error'
+        );
+      }
+    });
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
