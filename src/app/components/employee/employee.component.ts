@@ -7,6 +7,7 @@ import { RestService } from 'src/app/Services/rest.service';
 import { EmployeeFormComponent } from '../forms/employee-form/employee-form.component';
 import Swal from 'sweetalert2';
 import { ModalService } from 'src/app/Services/modal-service';
+import { RecursiveAstVisitor } from '@angular/compiler';
 
 @Component({
   selector: 'app-employee',
@@ -45,16 +46,19 @@ export class EmployeeComponent implements OnInit{
     }
   }
   
-
-
   openDialog () {
     this.modalService.titulo = "Nuevo empleado";
     this.modalService.accion.next("crear");
     this.dialog.open(EmployeeFormComponent, {
       width: '350px',
       height: '200px',
-    });
+    })
    }
+
+   closeDialog(){
+    this.dialog.closeAll();
+  }
+
 
 
   applyFilter(event: Event) {
@@ -66,8 +70,10 @@ export class EmployeeComponent implements OnInit{
     }
   }
 
-  editarItem(employee: any){
+  editarItem(row: any){
     this.modalService.titulo = "Modificar empleado";
+    this.modalService.employee = row;
+    this.modalService.id = row.Id;
   this.modalService.accion.next("Actualizar");
   this.dialog.open(EmployeeFormComponent, {
     width: '350px',
@@ -75,17 +81,36 @@ export class EmployeeComponent implements OnInit{
   });
   }
 
-  eliminarItem(employee: any){
+  async eliminarItem(employee: any){
     console.log(employee.Id);
-    this.api.delete("employee",employee.Id).then(res =>{
-      if(res=!null) {
+    Swal.fire({
+    title: '¿Estás seguro que deseas remover empleado?',
+    text: 'El empleado no podrá ser recuperado!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Si, elíminalo!',
+    cancelButtonText: 'No, olvídalo'}).then(async (result) => {
+      if (result.isConfirmed) {
+       await this.api.delete("employee", employee.Id).then(async (res) => {
+          if (res =! null) {
+           await Swal.fire(
+              'Eliminado!',
+              'Tu empleado ha sido eliminado.',
+              'success'
+            );
+          }
+          window.location.reload();
+        });
+            
+      } 
+      else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
-          'Empleado eliminado!',
-          'El empleado ha sido eliminado en el sistema',
-          'success'
-        )
+          'Cancelado',
+          'Tu pieza sigue guardada',
+          'error'
+        );
       }
-    })
+    });
   }
 
 }

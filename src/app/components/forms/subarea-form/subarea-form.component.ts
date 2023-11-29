@@ -17,7 +17,7 @@ export class SubareaFormComponent {
   infoSubArea: SubAreaModel = {
     id_area:0,
     name:""
-  }
+  } 
 
 
 SubAreaForm = this.fb.group({

@@ -23,6 +23,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddressFormComponent } from './components/forms/address-form/address-form.component';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -47,7 +48,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PieceFormComponent } from './components/forms/piece-form/piece-form.component';
 import { ClientFormComponent } from './components/forms/client-form/client-form.component';
 import { OrderactivityFormComponent } from './components/forms/orderactivity-form/orderactivity-form.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
 import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
 import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
@@ -82,6 +82,7 @@ import { SubareaFormComponent } from './components/forms/subarea-form/subarea-fo
 
     OrderemployeeFormComponent,
     SubareaFormComponent,
+
   ],
   imports: [
     BrowserModule,
