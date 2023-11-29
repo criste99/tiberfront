@@ -50,6 +50,9 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
 import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
 import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { PasswordComponent } from './components/password/password.component';
 
 
 @NgModule({
@@ -80,6 +83,9 @@ import { SubareaFormComponent } from './components/forms/subarea-form/subarea-fo
     
     OrderemployeeFormComponent,
     SubareaFormComponent,
+    RegisterComponent,
+    LoginComponent,
+    PasswordComponent,
   ],
   imports: [
     BrowserModule,
