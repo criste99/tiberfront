@@ -13,16 +13,13 @@
             <mat-error *ngIf="EmployeeForm.controls['name'].hasError('required')">
               El nombre del empleado es <strong>requerido</strong>
             </mat-error>
-            <mat-error *ngIf="EmployeeForm.controls['name'].hasError('pattern')">
-              Solo puede ingresar  <strong>letras</strong>
-            </mat-error>
           </mat-form-field>
         </div>
       </div>
 
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">{{accion}}</button>
+      <button mat-raised-button color="primary" [disabled]="!EmployeeForm.valid" type="submit">{{accion}}</button>
     </mat-card-actions>
   </mat-card>
 </form>
