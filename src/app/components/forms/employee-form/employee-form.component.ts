@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-
 import { FormBuilder, Validators } from '@angular/forms';
 import { EmployeeModel } from 'src/app/Models/EmployeeModel';
 import { ModalService } from 'src/app/Services/modal-service';
@@ -17,57 +16,100 @@ export class EmployeeFormComponent implements OnInit{
 
   titulo ="";
   accion = "";
+
   infoEmployee:EmployeeModel={
     name: ""
   }
-
+  infoEmployee1 ={
+    id: 0,
+    name: ""
+  }
   EmployeeForm = this.fb.group({
-    name: [null, [Validators.required, Validators.pattern('')]],
+    name: ['', Validators.required],
 
   });
 
   hasUnitNumber = false;
 
-constructor (private ep: FormBuilder, public api: RestService, public modalService: ModalService) {}
+constructor (public api: RestService, public modalService: ModalService) {}
   ngOnInit(): void {
     this.titulo = this.modalService.titulo;
     this.accion = this.modalService.accion.value;
+    if (this.modalService.accion.value == 'Actualizar') {
+      console.log(this.modalService.employee);
+      this.EmployeeForm.controls['name'].setValue(
+        this.modalService.employee.name + ''
+      );
+
+    }
   }
 
 
-  onSubmit(): void {
-if(this.EmployeeForm.valid){
+  async onSubmit(): Promise<void> {
+    try {
+      this.infoEmployee.name = this.EmployeeForm.controls['name'].value;
 
-  this.infoEmployee.name = this.EmployeeForm.controls ['name'].value
+      console.log(this.infoEmployee);
 
+      if (this.modalService.accion.value == "Actualizar") {
 
-  this.api.post("employee", this.infoEmployee).then(res=> {
-    if(res=!null) {
+        this.infoEmployee1.id = this.modalService.id;
+        this.infoEmployee1.name = this.infoEmployee.name + '';
+
+        console.log(this.infoEmployee1.name)
+
+        const res = await this.api.put("employee", this.modalService.id + '',  {name: this.infoEmployee1.name});
+        console.log(res)
+
+        if (res) {
+          const result = await Swal.fire({
+            title: 'Perfecto!',
+            text: 'Su pieza ha sido actualizada',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
+        } else {
+          Swal.fire(
+            'Perfecto!',
+            'Su pieza ha sido actualizada',
+            'success'
+          )
+        }
+
+      } else {
+        const res = await this.api.post("employee", this.infoEmployee);
+
+        if (res) {
+          const result = await Swal.fire({
+            title: 'Perfecto!',
+            text: 'Su pieza ha sido registrada',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        });
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
+        } else {
+         await Swal.fire(
+            'Perfecto!',
+            'Su pieza ha sido registrada',
+            'success'
+          )
+          window.location.reload();
+        }
+      }
+
+    } catch (e) {
       Swal.fire(
-        'Empleado registrado!',
-        'Su empleado ha sido registrado en el sistema',
-        'success'
-      )
-    } else {
-      Swal.fire(
-        'Debe ingresar los datos correctos!',
-         'Por favor validar',
+        'Error!',
+        'Por favor intente de nuevo',
         'error'
-       )
+      )
     }
 
-  })
 
-
-  console.log(this.infoEmployee);
-
-}
-else {
-  Swal.fire(
-   'Debe ingresar los datos requeridos!',
-    'Por favor validar',
-   'error'
-  )
-}
   }
 }

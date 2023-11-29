@@ -50,7 +50,6 @@ import { OrderactivityFormComponent } from './components/forms/orderactivity-for
 import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
 import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
 import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
-import { LoginComponent } from './components/forms/login/login.component';
 
 
 @NgModule({
@@ -78,7 +77,6 @@ import { LoginComponent } from './components/forms/login/login.component';
     PieceFormComponent,
     ClientFormComponent,
     OrderactivityFormComponent,
-    LoginComponent,
     
     OrderemployeeFormComponent,
     SubareaFormComponent,

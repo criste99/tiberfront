@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SubAreaModel } from 'src/app/Models/SubAreaModel';
 import { RestService } from 'src/app/Services/rest.service';
+import Swal from 'sweetalert2';
 import { SubareaFormComponent } from '../forms/subarea-form/subarea-form.component';
 
 @Component({
@@ -63,4 +64,36 @@ export class SubareaComponent implements OnInit {
         this.dataSource.paginator.firstPage();
       }
     }
+
+    eliminarItem(subarea: any){
+      console.log(subarea.Id);
+      Swal.fire({
+      title: '¿Estás seguro que deseas remover empleado?',
+      text: 'El empleado no podrá ser recuperado!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, elíminalo!',
+      cancelButtonText: 'No, olvídalo'}).then((result) => {
+        if (result.isConfirmed) {
+          this.api.delete("subArea", subarea.Id).then((res) => {
+            if (res =! null) {
+              Swal.fire(
+                'Eliminado!',
+                'Tu empleado ha sido eliminado.',
+                'success'
+              );
+            }        
+          });
+              
+        } 
+        else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire(
+            'Cancelado',
+            'Tu pieza sigue guardada',
+            'error'
+          );
+        }
+      });
+    }
+
 }
