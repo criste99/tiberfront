@@ -21,6 +21,9 @@ import { OrderactivityFormComponent } from './components/forms/orderactivity-for
 import { EmployeeFormComponent } from './components/forms/employee-form/employee-form.component';
 import { OrderemployeeFormComponent } from './components/forms/orderemployee-form/orderemployee-form.component';
 import { SubareaFormComponent } from './components/forms/subarea-form/subarea-form.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { PasswordComponent } from './components/password/password.component';
 
 const routes: Routes = [
 
@@ -34,21 +37,18 @@ const routes: Routes = [
   {path:"order",component:OrderComponent},
   {path:"orderactivity",component:OrderactivityComponent},
   {path:"orderemployee",component:OrderemployeeComponent},
-
-
-
-  {path:"table",component:TableComponent},
-  {path:"dragdrop",component:DragDropComponent},
   {path:"addressform",component:AddressFormComponent},
   {path:"employeeform",component:EmployeeFormComponent},
   {path:"orderemployeeform",component:OrderemployeeFormComponent},
   {path:"subareaform",component:SubareaFormComponent},
-  {path:"tree",component:TreeComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"table",component:TableComponent},
   {path:"clientform",component:ClientFormComponent},
   {path:"pieceform",component:PieceFormComponent},
-  {path:"orderactivityform",component:OrderactivityFormComponent}
+  {path:"orderactivityform",component:OrderactivityFormComponent},
+  {path:"register",component:RegisterComponent},
+  {path:"login",component:LoginComponent},
+  {path:"fgpass",component:PasswordComponent}
 
 ];
 

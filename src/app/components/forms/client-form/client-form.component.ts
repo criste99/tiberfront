@@ -23,7 +23,13 @@ export class ClientFormComponent implements OnInit{
     // this.api.Get("client");
     this.titulo = this.modalService.titulo;
     this.accion = this.modalService.accion.value;
+    if (this.modalService.accion.value == 'Actualizar') {
+      console.log(this.modalService.client);
+      this.addressFormClient.controls['name'].setValue(
+        this.modalService.client.name + ''
+      );
 
+    }
   }
   private fb = inject(FormBuilder);
   titulo ="";
