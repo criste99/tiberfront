@@ -23,27 +23,12 @@ export class AddressFormComponent implements OnInit {
     client: ["", Validators.required],
     piece: ["", Validators.required],
     color: ["", Validators.required],
-    quanty: ["", Validators.required, Validators.maxLength(5)],
+    quanty: ["", Validators.required],
   });
 
   hasUnitNumber = false;
 
-  pieces = [
-    {name: 'Cabezales'},
-    {name: 'Brazos'},
-    {name: 'Bobinas'},
-    {name: 'Brocas'},
-    {name: 'Afiladoras'},
-    {name: 'Cilindros'},
-  ];
 
-  colors = [
-    {name: 'Plata'},
-    {name: 'Oro'},
-    {name: 'Brush'},
-    {name: 'Niquel'},
-
-  ];  
 
   onSubmit(): void {
     Swal.fire(

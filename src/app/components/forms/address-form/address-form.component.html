@@ -15,16 +15,10 @@
         </div>
       </div>
       
-      
-
       <div class="row">
       <div class="col">
         <mat-form-field class="full-width">
-          <mat-select placeholder="Pieza" formControlName="piece">
-            <mat-option *ngFor="let piece of pieces" [value]="piece">
-              {{piece.name}}             
-            </mat-option>            
-          </mat-select>
+          <input matInput placeholder="Pieza" formControlName="piece">         
           <mat-error *ngIf="addressForm.controls['piece'].hasError('required')">
             La pieza es <strong>requerida</strong>
           </mat-error>
@@ -37,9 +31,6 @@
       <div class="col">
         <mat-form-field class="full-width">
           <mat-select placeholder="Color" formControlName="color">
-            <mat-option *ngFor="let color of colors" [value]="color">
-              {{color.name}}
-            </mat-option>
           </mat-select>
           <mat-error *ngIf="addressForm.controls['color'].hasError('required')">
             El color es <strong>requerido</strong>

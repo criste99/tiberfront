@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { SubAreaModel } from 'src/app/Models/SubAreaModel';
 import { RestService } from 'src/app/Services/rest.service';
 import Swal from 'sweetalert2';
 import { SubareaFormComponent } from '../forms/subarea-form/subarea-form.component';
@@ -45,16 +44,13 @@ export class SubareaComponent implements OnInit {
         this.displayedColumns.push('Acciones');
       }
     }
-
-    
+ 
   openDialog () {
     this.dialog.open(SubareaFormComponent, {
       width: '400px',
       height: '400px',
-    });
-   }
-
-   
+    })
+   }   
   
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
@@ -64,29 +60,28 @@ export class SubareaComponent implements OnInit {
         this.dataSource.paginator.firstPage();
       }
     }
-
-    eliminarItem(subarea: any){
-      console.log(subarea.Id);
+    eliminarItem(subArea: any) {
+      console.log(subArea.Id);
       Swal.fire({
-      title: '¿Estás seguro que deseas remover empleado?',
-      text: 'El empleado no podrá ser recuperado!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si, elíminalo!',
-      cancelButtonText: 'No, olvídalo'}).then((result) => {
+        title: '¿Estás seguro que deseas remover la pieza?',
+        text: 'La pieza no podrá ser recuperada!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, elíminalo!',
+        cancelButtonText: 'No, olvídalo'
+      }).then((result) => {
         if (result.isConfirmed) {
-          this.api.delete("subArea", subarea.Id).then((res) => {
+          this.api.delete("subArea", subArea.Id).then((res) => {
             if (res =! null) {
+              console.log(res);
               Swal.fire(
                 'Eliminado!',
-                'Tu empleado ha sido eliminado.',
+                'Tu pieza ha sido eliminada.',
                 'success'
               );
-            }        
+            }
           });
-              
-        } 
-        else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
+        } else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire(
             'Cancelado',
             'Tu pieza sigue guardada',
@@ -95,5 +90,4 @@ export class SubareaComponent implements OnInit {
         }
       });
     }
-
 }

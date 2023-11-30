@@ -89,9 +89,6 @@ constructor (public api: RestService, public modalService: ModalService) {}
             icon: 'success',
             confirmButtonText: 'Ok'
         });
-        if (result.isConfirmed) {
-          window.location.reload();
-        }
         } else {
          await Swal.fire(
             'Perfecto!',
